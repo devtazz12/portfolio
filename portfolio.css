@@ -1,0 +1,12 @@
+h4{
+    font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+
+}
+.hero{
+    box-shadow: 20px 20px #0f21c6;
+    border-radius: 30px;
+}
+.section1{
+    background-color: #d4d3d5;
+}
