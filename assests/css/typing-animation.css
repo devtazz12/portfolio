@@ -1,0 +1,19 @@
+.typing-container {
+      font-family: monospace;
+    }
+    #typing-text {
+      display: inline-block;
+      min-width: 1ch;
+      transition: all 0.1s ease-in-out;
+    }
+    #cursor {
+      display: inline-block;
+      width: 1ch;
+      animation: blink 0.7s step-end infinite;
+      color: #7dd3fc; /* Tailwind's blue-300 */
+    }
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }

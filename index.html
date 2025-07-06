@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Portfolio</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom Bubble CSS -->
+    <link rel="stylesheet" href="assests/css/background-bubble.css" />
+    <link rel="stylesheet" href="assests/css/navbar.css" />
+    <link rel="stylesheet" href="assests/css/typing-animation.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body
+    class="relative bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#003300] text-white overflow-x-hidden"
+  >
+    <audio
+      id="type-sound"
+      src="assests/audio/typing.mp3"
+      preload="auto"
+    ></audio>
+
+    <!-- Preloader -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-[#0f2027] flex items-center justify-center z-[9999] transition-opacity duration-700"
+    >
+      <h4 id="preloader-msg" class="text-white/80 mb-4">
+        Click to load my portfolio
+      </h4>
+      <h1 class="text-white font-mono text-2xl sm:text-3xl typing-text"></h1>
+    </div>
+
+    <!-- ✅ Global Bubble Background -->
+    <div
+      id="bubble-container"
+      class="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
+    ></div>
+
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-[#0f2027]/80 backdrop-blur-md border-b border-white/10"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+      >
+        <!-- Logo / Name -->
+        <div class="text-white font-bold text-xl tracking-wide">
+          <a href="#">DEV NARAYAN TAJPURIYA</a>
+        </div>
+
+        <!-- Hamburger Icon -->
+        <button id="nav-toggle" class="text-white md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Nav Links -->
+        <nav
+          id="nav-menu"
+          class="hidden md:flex gap-6 text-white text-sm font-medium"
+        >
+          <a href="#hero" class="hover:text-blue-400 transition">Home</a>
+          <a href="#about" class="hover:text-blue-400 transition">About</a>
+          <a href="#projects" class="hover:text-blue-400 transition"
+            >Projects</a
+          >
+          <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Mobile Nav Links -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <a href="#hero" class="block py-2 text-white hover:text-blue-400"
+          >Home</a
+        >
+        <a href="#about" class="block py-2 text-white hover:text-blue-400"
+          >About</a
+        >
+        <a href="#projects" class="block py-2 text-white hover:text-blue-400"
+          >Projects</a
+        >
+        <a href="#contact" class="block py-2 text-white hover:text-blue-400"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <!-- ✅ Hero Section -->
+    <section
+      id="hero"
+      class="min-h-screen flex items-center justify-center px-4 pt-24 relative"
+    >
+      <div
+        class="z-10 max-w-6xl w-full backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-12 shadow-xl"
+        data-aos="zoom-in"
+      >
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <img
+            src="assests/images/hero.jpg"
+            alt="Profile"
+            class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white/20 shadow-lg object-cover hover:scale-150 transition"
+          />
+          <div class="text-center md:text-left">
+            <h1
+              class="text-2xl sm:text-3xl md:text-4xl font-bold typing-container"
+            >
+              Hi, I'm <span id="typing-text" class="text-blue-300"></span
+              ><span id="cursor">|</span>
+            </h1>
+
+            <p class="text-white/90 mb-6">
+              Computer Engineer specializing in deep learning, intelligent
+              systems, and user-focused web interfaces.
+            </p>
+            <a
+              href="https://github.com/devtazz12"
+              class="inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-full"
+              >See My Work</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- about section -->
+    <section
+      id="about"
+      class="min-h-screen px-6 py-16 flex items-center justify-center"
+    >
+      <div
+        class="max-w-6xl w-full backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-12 shadow-xl"
+        data-aos="fade-up"
+      >
+        <h2 class="text-3xl font-bold text-center text-blue-300 mb-6">
+          About Me
+        </h2>
+
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <!-- Bio -->
+          <div class="text-white text-center md:text-left">
+            <p class="mb-4 text-white/80">
+              I'm a computer engineer with a focus on AI-based initiatives that
+              connect machine intelligence and human behavior. I have created
+              systems such as a CNN-based Speech Emotion Recognition model and a
+              KNN-based Product Recommendation Engine that uses collaborative
+              filtering. My mission is to write clean, effective code to tackle
+              real-world problems through intelligent, user-centered
+              applications.
+            </p>
+
+            <!-- Experience Bars -->
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm mb-1">HTML</label>
+                <div
+                  class="w-full bg-white/20 rounded-full h-4 overflow-hidden"
+                >
+                  <div
+                    class="bg-blue-500 h-full rounded-full animate-[grow_2s_ease-in-out_forwards]"
+                    style="width: 95%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">CSS / Tailwind</label>
+                <div
+                  class="w-full bg-white/20 rounded-full h-4 overflow-hidden"
+                >
+                  <div
+                    class="bg-purple-500 h-full rounded-full animate-[grow_2s_0.2s_ease-in-out_forwards]"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">JavaScript</label>
+                <div
+                  class="w-full bg-white/20 rounded-full h-4 overflow-hidden"
+                >
+                  <div
+                    class="bg-yellow-400 h-full rounded-full animate-[grow_2s_0.4s_ease-in-out_forwards]"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">GSAP / AOS</label>
+                <div
+                  class="w-full bg-white/20 rounded-full h-4 overflow-hidden"
+                >
+                  <div
+                    class="bg-green-400 h-full rounded-full animate-[grow_2s_0.6s_ease-in-out_forwards]"
+                    style="width: 70%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Django/python</label>
+                <div
+                  class="w-full bg-white/20 rounded-full h-4 overflow-hidden"
+                >
+                  <div
+                    class="bg-red-400 h-full rounded-full animate-[grow_2s_0.6s_ease-in-out_forwards]"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Projects Section -->
+    <section
+      id="projects"
+      class="min-h-screen px-6 py-16 bg-transparent text-white relative z-10"
+    >
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-4xl sm:text-5xl font-extrabold text-center text-blue-300 mb-16"
+          data-aos="fade-up"
+        >
+          Projects I've Crafted
+        </h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          <!-- Project Card 1 -->
+          <div
+            class="group p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg transition-all duration-300 transform hover:scale-[1.1] hover:shadow-2xl"
+          >
+            <h3
+              class="text-2xl font-semibold text-blue-200 mb-3 group-hover:text-blue-400 transition"
+            >
+              Product Recommendation System
+            </h3>
+            <p class="text-white/80 text-sm mb-4 leading-relaxed">
+              A smart recommendation engine using KNN-based collaborative
+              filtering to suggest personalized products based on similar user
+              behavior.
+            </p>
+            <a
+              href="https://github.com/devtazz12/product-recommendation-system"
+              target="_blank"
+              class="inline-block text-sm text-blue-400 underline hover:text-blue-300 transition"
+            >
+              View Project →
+            </a>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div
+            class="group p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg transition-all duration-300 transform hover:scale-[1.1] hover:shadow-2xl"
+          >
+            <h3
+              class="text-2xl font-semibold text-blue-200 mb-3 group-hover:text-blue-400 transition"
+            >
+              Speech Emotion Recognition
+            </h3>
+            <p class="text-white/80 text-sm mb-4 leading-relaxed">
+              A deep learning-based CNN model that classifies emotions from
+              speech signals, enhancing real-time interaction in AI systems.
+            </p>
+            <a
+              href="https://github.com/devtazz12/SPEECH-EMOTION-RECOGNITION"
+              class="inline-block text-sm text-blue-400 underline hover:text-blue-300 transition"
+            >
+              View Project →
+            </a>
+          </div>
+
+          <!-- Project Card 3 -->
+          <div
+            class="group p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg transition-all duration-300 transform hover:scale-[1.1] hover:shadow-2xl"
+          >
+            <h3
+              class="text-2xl font-semibold text-blue-200 mb-3 group-hover:text-blue-400 transition"
+            >
+              Personal Blog Website
+            </h3>
+            <p class="text-white/80 text-sm mb-4 leading-relaxed">
+              A clean and responsive blog site built with Tailwind CSS and
+              JavaScript, focused on readability, speed, and minimal UI.
+            </p>
+            <a
+              href="#"
+              class="inline-block text-sm text-blue-400 underline hover:text-blue-300 transition"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Contact Section -->
+    <section id="contact" class="min-h-screen px-6 py-16 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-blue-300 mb-8" data-aos="fade-up">
+          Contact Me
+        </h2>
+        <p class="text-white/80 mb-8" data-aos="fade-up" data-aos-delay="100">
+          Innovation starts with a conversation — reach out and let’s build
+          something remarkable together.
+        </p>
+        <form
+          action="https://formspree.io/f/mzzgqavj"
+          method="POST"
+          class="p-8 rounded-xl border border-white/20 backdrop-blur-md space-y-4"
+          data-aos="zoom-in"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            class="w-full p-3 rounded-md bg-transparent border border-white/20 text-white placeholder-white/50 focus:outline-none"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            class="w-full p-3 rounded-md bg-transparent border border-white/20 text-white placeholder-white/50 focus:outline-none"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+            rows="4"
+            class="w-full p-3 rounded-md bg-transparent border border-white/20 text-white placeholder-white/50 focus:outline-none"
+          ></textarea>
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full transition"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f2027] text-white py-6 border-t border-white/10 mt-12">
+      <div class="max-w-6xl mx-auto px-4 text-center text-sm text-white/60">
+        &copy; <span id="year"></span> Er. DEV NARAYAN TAJPURIYA — All Rights
+        Reserved.
+      </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- Bubble Script -->
+    <script src="assests/js/background-bubble.js"></script>
+    <script src="assests/js/preloader.js"></script>
+    <script src="assests/js/navbar.js"></script>
+    <script src="assests/js/typing-animation.js"></script>
+  </body>
+</html>
